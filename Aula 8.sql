@@ -1,10 +1,10 @@
-create database auladb;
-use auladb;
+create database exercicio;
+use exercicio;
 
 CREATE TABLE Produtos(
 	produto_id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(100),
-	preco DECIMAL(10, 2),
+	nome VARCHAR(100) not null,
+	preco DECIMAL(10, 2) not null,
 	estoque INT
 );
 
@@ -24,10 +24,10 @@ CREATE TABLE Pedidos (
 
 CREATE TABLE DetalhesPedidos (
 	detalhe_id INT PRIMARY KEY AUTO_INCREMENT,
-	quantidade INT,
+	quantidade INT not null,
 	preco_unitario DECIMAL(10, 2),
-	pedidoID_FK INT,
+	pedidoID_FK INT not null,
+    produtoID_FK INT not null, 
     FOREIGN KEY (pedidoID_FK) REFERENCES Pedidos(pedido_id),
-    produtoID_FK INT, 
-    FOREIGN KEY (produtoID_FK) REFERENCES Produtos(produto_id)
+	FOREIGN KEY (produtoID_FK) REFERENCES Produtos(produto_id)
 );
