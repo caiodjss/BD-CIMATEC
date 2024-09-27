@@ -1,0 +1,12 @@
+DELIMITER //
+
+CREATE FUNCTION media(a INT, b INT, c INT)
+RETURNS FLOAT
+DETERMINISTIC
+BEGIN
+    RETURN (a + b + c) / 3;
+END//
+
+DELIMITER ;
+
+select media (3, 4, 5)

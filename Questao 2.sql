@@ -1,0 +1,12 @@
+DELIMITER //
+
+CREATE FUNCTION concat_nomes (a VARCHAR(100), b VARCHAR(100))
+RETURNS VARCHAR(200)
+DETERMINISTIC
+BEGIN
+	RETURN CONCAT (a, " de ", b);
+END//
+
+DELIMITER ;
+
+SELECT concat_nomes('Caio', 'Jesus');

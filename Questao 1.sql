@@ -1,0 +1,12 @@
+DELIMITER //
+
+CREATE FUNCTION multiplicar(a INT, b INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    RETURN a * b;
+END//
+
+DELIMITER ;
+
+select multiplicar (10,2)
